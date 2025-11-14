@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Quiz & Fill-in Practice</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #e8f3ff; }
+    .container { max-width: 700px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.15);} 
+    h1 { text-align: center; margin-bottom: 10px; }
+    h2 { margin-top: 40px; }
+    .question { margin-bottom: 20px; }
+    .fill-box { width: 95%; padding: 10px; border-radius: 8px; border: 1px solid #888; }
+    button { padding: 12px 18px; border: none; border-radius: 8px; cursor: pointer; background: #4CAF50; color: white; font-size: 16px; }
+    button:hover { opacity: 0.9; }
+    #result, #fillResult { font-weight: bold; margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Smart Quiz Website</h1>
+    <p style="text-align:center; color:#555;">Multiple Choice + Fill-in-the-Blank Practice</p>
+
+    <h2>Part 1: Multiple Choice Quiz</h2>
+    <div class="question">
+      <p>1. What is the capital of France?</p>
+      <input type="radio" name="q1" value="0"> Berlin<br>
+      <input type="radio" name="q1" value="1"> Paris<br>
+      <input type="radio" name="q1" value="0"> Madrid
+    </div>
+
+    <div class="question">
+      <p>2. 2 + 2 = ?</p>
+      <input type="radio" name="q2" value="0"> 3<br>
+      <input type="radio" name="q2" value="1"> 4<br>
+      <input type="radio" name="q2" value="0"> 5
+    </div>
+
+    <div class="question">
+      <p>3. Which planet is known as the Red Planet?</p>
+      <input type="radio" name="q3" value="0"> Earth<br>
+      <input type="radio" name="q3" value="1"> Mars<br>
+      <input type="radio" name="q3" value="0"> Venus
+    </div>
+
+    <button onclick="checkQuiz()">Submit Quiz</button>
+    <p id="result"></p>
+
+    <h2>Part 2: Fill-in-the-Blank Exercise</h2>
+    <p>Complete the sentence: "Living in a smart city helps people ______ their daily tasks."</p>
+    <input class="fill-box" id="blank" placeholder="Type your answer here...">
+
+    <button style="margin-top:15px;" onclick="checkFill()">Check Answer</button>
+    <p id="fillResult"></p>
+
+  </div>
+
+  <script>
+    function checkQuiz() {
+      let score = 0;
+      const answers = document.querySelectorAll('input[type=radio]:checked');
+      answers.forEach(a => score += parseInt(a.value));
+      document.getElementById('result').innerHTML = "Your score: " + score + "/3";
+    }
+
+    function checkFill() {
+      const user = document.getElementById('blank').value.trim().toLowerCase();
+      const correct = ["manage", "complete", "finish"];
+
+      if (correct.includes(user)) {
+        document.getElementById('fillResult').innerHTML = "✔ Correct!";
+      } else {
+        document.getElementById('fillResult').innerHTML = "✘ Try again! Suggested answers: manage / complete / finish";
+      }
+    }
+  </script>
+</body>
+</html>
