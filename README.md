@@ -27,6 +27,16 @@ const questions = [
     },
     {
         number: 10,
+
+        const fillQuestions = [
+    { number: 20, question: "HEALTH → _________ lifestyle", answer: "healthy" },
+    { number: 21, question: "REGULAR → exercise _________", answer: "regularly" },
+    { number: 22, question: "UNHEALTH → an ________ diet", answer: "unhealthy" },
+    { number: 23, question: "ACT → She stays _________", answer: "active" },
+    { number: 24, question: "BALANCE → a _________ diet", answer: "balanced" },
+    { number: 25, question: "STRONG → increase ________", answer: "strength" }
+];
+
         question: "Choose the word with different stress pattern.",
         options: ["A. release", "B. avoid", "C. global", "D. event"],
         answer: "C"
